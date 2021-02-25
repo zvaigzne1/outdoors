@@ -12,3 +12,40 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+
+
+// 0-600px: phone
+// 600 -900px: Tablet Portrait
+// 900-1200px: Tablet ladscape
+// 1200-1800px: normal styles
+// 1800+ Big desktop
+
+
+// $breakpoint argument choises:
+// phone
+// tab-port
+// tab-land
+// big-desktop
+
+// Rem and em units in @media queries are not affected by our default root font-size. In this project 62.5% = 10px = 1rem; 
+
+// 1rem in @media query = font size in browser
+// for media queries em is better because rem units fails in some browsers
+
+// 1 em = 16px in browser by default. 600px/16px = 37.5 em
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content }; // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content }; //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content }; // 1800px
+    }
+}

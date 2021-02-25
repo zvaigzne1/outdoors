@@ -12,6 +12,7 @@
 
     &__content {
         @include absCenter;
+        // includes transform property
 
         width: 75%;
         background-color: $color-white;
@@ -22,6 +23,7 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(.25);
         transition: all .5s .2s;
+        // For using two "transform" on same element we need to include properties of both transform translate fiels.
     }
 
     &__left {
